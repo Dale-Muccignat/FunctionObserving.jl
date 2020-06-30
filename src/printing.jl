@@ -55,7 +55,7 @@ function ShowError(obs::OBSERVATION)
 
         rows = join.(eachrow(tab), " | ")
     end
-    println(RED_BG("Exception: ", sprint(showerror, obs.result)))
+    println(RED_FG("Exception: ", sprint(showerror, obs.result)))
     println(YELLOW_FG(join(rows,"\n")))
     println()
     ShowStds(obs)
@@ -117,7 +117,7 @@ function PrettyResult(obs, last_success)
     try
         display(obs.result)
     catch exc
-        println(RED_BG("Got error while trying to display result."))
+        println(RED_FG("Got error while trying to display result."))
         showerror(stderr, exc)
     end
     println()
